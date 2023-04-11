@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "brand-fe"
+version = "0.1.0"
+description = ""
+authors = ["Joao Jesus <67010899+joaojesus81@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "brand_fe"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.2.3"
+python-dotenv = "^1.0.0"
+requests = "^2.28.2"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line_length = 120

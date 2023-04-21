@@ -33,9 +33,7 @@ def login():
             error = "Incorrect username or password"
 
         if error is None:
-            decoded_user = jwt.decode(
-                user.json()["access_token"], config["JWT_SECRET_KEY"], algorithms=config["ALGORITHM"]
-            )
+            decoded_user = jwt.decode(user.json()["access_token"], config["SECRET_KEY"], algorithms=config["ALGORITHM"])
             session.clear()
             session["user_id"] = decoded_user["sub"]
             session["access_token"] = user.json()["access_token"]

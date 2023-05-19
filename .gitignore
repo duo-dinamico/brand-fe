@@ -1,15 +1,1 @@
 .vscode/settings.json
-.env
-
-*.pyc
-__pycache__/
-
-instance/
-
-.pytest_cache/
-.coverage
-htmlcov/
-
-dist/
-build/
-*.egg-info/

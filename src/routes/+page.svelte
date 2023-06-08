@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+	import { onMount } from 'svelte';
 
-  let brands = [];
+	let brands = [];
 
-  onMount(() => {
-    fetch("https://brands.duodinamico.online/brands/")
-      .then((response) => response.json())
-      .then((result) => (brands = result.brands));
-  });
+	onMount(() => {
+		fetch('https://brands.duodinamico.online/brands/')
+			.then((response) => response.json())
+			.then((result) => (brands = result.brands));
+	});
 </script>
 
 <!--    
@@ -39,13 +39,13 @@
     //   deleted_by: UserBase;
     // } -->
 
-<body class="absolute inset-x-0 top-16">
-  <h1 class="text-xl font-semibold">Brand List</h1>
-  <ul>
-    {#each brands as brand (brand.id)}
-      <li>{brand.name} - link</li>
-    {:else}
-      <h2>wait</h2>
-    {/each}
-  </ul>
-</body>
+<div class="absolute top-16">
+	<h1 class="text-xl font-semibold">Brand List</h1>
+	<ul>
+		{#each brands as brand (brand.id)}
+			<li><a href="/brand/{brand.id}">{brand.name}</a></li>
+		{:else}
+			<h2>wait</h2>
+		{/each}
+	</ul>
+</div>

@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
-	let brand = [];
+	let brand:any = [];
 
 	onMount(() => {
 		fetch(`https://brands.duodinamico.online/brands/${$page.params.slug}`)
@@ -16,7 +16,11 @@
 	<ul>
 		{#each brand as [key, value]}
 			<li>
+				{#if key != "category"}
 				{key} - {value}
+				{:else}
+				<a href="/categories/{value.id}">{key} - {value.id}</a>
+				{/if}
 			</li>
 		{/each}
 	</ul>

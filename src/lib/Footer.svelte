@@ -1,20 +1,32 @@
 <script lang="ts">
-  const addBrand = () => {
-    alert("Can't add Brand yet.");
-  };
+	const addBrand = () => {
+		alert("Can't add Brand yet.");
+	};
 </script>
 
-<footer class="absolute inset-x-0 bottom-0 h-16">
-  <button
-    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    on:click={addBrand}
-  >
-    addBrand
-  </button>
-</footer>
-
-<style lang="postcss">
-  footer {
-    background-color: rgb(96, 104, 98);
-  }
-</style>
+<div class="btm-nav bg-secondary">
+	<button
+		><a href="/">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-5 w-5"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				><path
+					d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+				/></svg
+			>
+		</a>
+	</button>
+	<button on:click={addBrand}>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="h-5 w-5"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke="currentColor"
+			><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg
+		>
+	</button>
+</div>

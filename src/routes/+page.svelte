@@ -39,13 +39,23 @@
     //   deleted_by: UserBase;
     // } -->
 
-<div class="absolute top-16">
-	<h1 class="text-xl font-semibold">Brand List</h1>
-	<ul>
-		{#each brands as brand (brand.id)}
-			<li><a href="/brand/{brand.id}">{brand.name}</a></li>
-		{:else}
-			<h2>wait</h2>
-		{/each}
-	</ul>
-</div>
+{#if brands.length}
+	<div class="overflow-x-auto">
+		<table class="table table-zebra">
+			<thead>
+				<tr>
+					<th>Brand Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each brands as brand (brand.id)}
+					<tr>
+						<th><a class="link link-primary" href="/brand/{brand.id}">{brand.name}</a></th>
+						<th>{brand.description}</th>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+{:else}<span class="loading loading-spinner loading-sm" />{/if}

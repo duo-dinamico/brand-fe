@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
-	let category:any = [];
+	let category: any = [];
 
 	onMount(() => {
 		fetch(`https://brands.duodinamico.online/categories/${$page.params.id}`)
@@ -11,8 +11,8 @@
 	});
 </script>
 
-<div class="absolute top-16">
-	<h1 class="text-xl font-semibold">Category</h1>
+<div>
+	<h1>Category</h1>
 	<ul>
 		{#each category as [key, value]}
 			<li>

@@ -2,26 +2,27 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
-	let brand:any = [];
+	let brand;
 
 	onMount(() => {
 		fetch(`https://brands.duodinamico.online/brands/${$page.params.slug}`)
 			.then((response) => response.json())
-			.then((result) => (brand = Object.entries(result.brands[0])));
+			.then((result) => (brand = result.brands[0]));
 	});
 </script>
 
-<div class="absolute top-16">
-	<h1 class="text-xl font-semibold">Brand</h1>
-	<ul>
-		{#each brand as [key, value]}
-			<li>
-				{#if key != "category"}
-				{key} - {value}
-				{:else}
-				<a href="/categories/{value.id}">{key} - {value.id}</a>
-				{/if}
-			</li>
-		{/each}
-	</ul>
-</div>
+{#if brand}
+	<div class="card w-2/3 shadow-xl bg-primary">
+		<div class="card-body">
+			<h2 class="card-title">{brand.name}</h2>
+			<p>{brand.description}</p>
+			<div class="card-actions justify-end">
+				<button class="btn btn-secondary"
+					><a href="/categories/{brand.category.id}">{brand.category.name}</a></button
+				>
+			</div>
+		</div>
+	</div>
+{:else}
+	<span class="loading loading-spinner loading-sm" />
+{/if}

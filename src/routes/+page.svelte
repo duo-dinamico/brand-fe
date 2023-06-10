@@ -58,4 +58,4 @@
 			</tbody>
 		</table>
 	</div>
-{:else}<span class="loading loading-spinner loading-sm" />{/if}
+{:else}<span class="loading loading-spinner loading-lg" />{/if}

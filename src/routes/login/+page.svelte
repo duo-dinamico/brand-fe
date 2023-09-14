@@ -25,7 +25,7 @@
 	<p>{error}</p>
 {/if}
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
 	<input
 		type="text"
 		placeholder="Enter your email"

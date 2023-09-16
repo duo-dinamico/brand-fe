@@ -1,13 +1,9 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
 
-	let brands = [];
+	export let data: PageData;
 
-	onMount(() => {
-		fetch('https://brands.duodinamico.online/brands/')
-			.then((response) => response.json())
-			.then((result) => (brands = result.brands));
-	});
+	const { brands } = data;
 </script>
 
 <!--    

@@ -6,15 +6,14 @@
 	let brandSocials: any = [];
 
 	onMount(() => {
-		fetch(`https://brands.duodinamico.online/brands/${$page.params.slug}`)
+		fetch(`https://brands.duodinamico.online/brands/${$page.params.brand_id}`)
 			.then((response) => response.json())
 			.then((result) => {
 				brand = result.brands[0];
 			});
-		fetch(`https://brands.duodinamico.online/brands/${$page.params.slug}/socials/`)
+		fetch(`https://brands.duodinamico.online/brands/${$page.params.brand_id}/socials/`)
 			.then((response) => response.json())
 			.then((result) => {
-				console.log(result);
 				brandSocials = result.socials;
 			});
 	});

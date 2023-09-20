@@ -1,25 +1,12 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
+	import type { PageData } from './$types';
 
-	let brand: any;
-	let brandSocials: any = [];
+	export let data: PageData;
 
-	onMount(() => {
-		fetch(`https://brands.duodinamico.online/brands/${$page.params.brand_id}`)
-			.then((response) => response.json())
-			.then((result) => {
-				brand = result.brands[0];
-			});
-		fetch(`https://brands.duodinamico.online/brands/${$page.params.brand_id}/socials/`)
-			.then((response) => response.json())
-			.then((result) => {
-				brandSocials = result.socials;
-			});
-	});
+	const { brand, brandSocials } = data;
 </script>
 
-{#if brand}
+{#if data}
 	<section class="card m-4 shadow-xl bg-primary">
 		<div class="card-body">
 			<h2 class="card-title">{brand.name}</h2>

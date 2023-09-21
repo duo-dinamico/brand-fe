@@ -14,7 +14,6 @@ export const load: PageServerLoad = async ({ params }) => {
 	]);
 
 	if (brand && brandSocials) {
-		console.log({ brand: brand.brands[0], brandSocials: brandSocials.socials });
 		return { brand: brand.brands[0], brandSocials: brandSocials.socials };
 	}
 
